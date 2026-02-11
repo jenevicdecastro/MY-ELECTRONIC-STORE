@@ -1,95 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pro Business Store</title>
-<style>
-body{
-    margin:0;
-    font-family:Arial, sans-serif;
-    background:#f5f5f5;
-}
-header{
-    background:#111;
-    color:white;
-    padding:15px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-}
-header h1{margin:0;}
-nav button{
-    margin-left:10px;
-    padding:8px 12px;
-    border:none;
-    cursor:pointer;
-}
-.container{
-    padding:20px;
-}
-.products{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    gap:20px;
-}
-.card{
-    background:white;
-    padding:15px;
-    border-radius:8px;
-    box-shadow:0 4px 10px rgba(0,0,0,0.1);
-}
-.card img{
-    width:100%;
-    height:180px;
-    object-fit:cover;
-}
-button{
-    background:#28a745;
-    color:white;
-    border:none;
-    padding:8px 12px;
-    cursor:pointer;
-    border-radius:5px;
-}
-button:hover{
-    opacity:0.9;
-}
-.cart{
-    position:fixed;
-    right:0;
-    top:0;
-    width:300px;
-    height:100%;
-    background:white;
-    padding:15px;
-    overflow:auto;
-    box-shadow:-2px 0 10px rgba(0,0,0,0.2);
-}
-input{
-    padding:8px;
-    width:100%;
-    margin-bottom:10px;
-}
-.hidden{display:none;}
-.admin-panel{
-    background:white;
-    padding:15px;
-    margin-top:20px;
-}
-</style>
+    <meta charset="UTF-8">
+    <title>Pro Digital Store</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <header>
-    <h1>Pro Business Store</h1>
-    <div>
-        <button onclick="showLogin()">Login</button>
-        <button onclick="showRegister()">Register</button>
-        <button onclick="toggleCart()">Cart 🛒</button>
+    <h1>🚀 Pro Digital Store</h1>
+    <div class="cart-btn" onclick="openCart()">
+        🛒 Cart (<span id="cart-count">0</span>)
     </div>
 </header>
 
-<div class="container">
-    <div id="product-list" class="products"></div>
+<section id="products" class="products"></section>
+
+<!-- Cart Modal -->
+<div id="cart-modal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeCart()">&times;</span>
+        <h2>Your Cart</h2>
+        <ul id="cart-items"></ul>
+        <h3>Total: $<span id="cart-total">0</span></h3>
+        <button onclick="checkout()">Checkout</button>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
 
